@@ -34,7 +34,7 @@ public class FileWriterClass {
 	
 	public void make_java_file() {
 		try {
-            File newTextFile = new File("D:/code_1.java");
+            File newTextFile = new File("mkdir code_1.java");
             FileWriter fw = new FileWriter(newTextFile);
             //code = code.substring(1, code.length()-1);
             fw.write(code);
@@ -47,7 +47,7 @@ public class FileWriterClass {
 	
 	public void make_input_file() {
 		try {
-            File newTextFile = new File("D:/input.txt");
+            File newTextFile = new File("mkdir input.txt");
             FileWriter fw = new FileWriter(newTextFile);
             //input = input.substring(1, input.length()-1);
             fw.write(input);
@@ -59,7 +59,7 @@ public class FileWriterClass {
 	}
 	
 	public void compiler() throws IOException {
-		command = "javac D:/code_1.java";
+		command = "javac code_1.java";
 		process = null;
 		try
 		{
@@ -93,7 +93,7 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		command2 = "cmd /c java D:/code_1.java < D:/input.txt";
+		command2 = "cmd /c java code_1.java < input.txt";
 		//command2 = "cmd /d dir";
 		process2 = null;
 		try
