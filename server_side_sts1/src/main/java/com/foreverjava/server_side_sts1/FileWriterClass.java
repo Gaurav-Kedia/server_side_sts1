@@ -103,7 +103,7 @@ public class FileWriterClass {
         	System.out.println("Command: " + command2);
 		
 		ProcessBuilder builder = new ProcessBuilder();
-        	builder.directory(whereToRun);
+        	builder.directory(location);
 
         	if(isWindows) {
             		builder.command("cmd.exe", "/c", command);
