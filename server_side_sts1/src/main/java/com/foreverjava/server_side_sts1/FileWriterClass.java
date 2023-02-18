@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class FileWriterClass {
 	
+	private static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	String code;
 	String input;
 	Scanner compiler_output, runtime;
@@ -95,13 +96,27 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		command2 = "java /home/gauravk/server_side_sts1/server_side_sts1/target/code_1.java < /home/gauravk/server_side_sts1/server_side_sts1/target/input.txt";
+		File location = new File("/home/gauravk/server_side_sts1/server_side_sts1/target/");
+		command2 = "java code_1.java < input.txt";
+		
+		System.out.println("Running in: " + location);
+        	System.out.println("Command: " + command2);
+		
+		ProcessBuilder builder = new ProcessBuilder();
+        	builder.directory(whereToRun);
+
+        	if(isWindows) {
+            		builder.command("cmd.exe", "/c", command);
+        	}else {
+            		builder.command("sh", "-c", command);
+        	}
 		//command2 = "bash /c pwd";
 		//command2 = "cmd /d dir";
 		process2 = null;
 		try
 		{
-		    process2 = Runtime.getRuntime().exec(command2);
+		    //process2 = Runtime.getRuntime().exec(command2);
+		      process2 = builder.start();
 		} 
 		catch (IOException e)
 		{
