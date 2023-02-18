@@ -26,7 +26,7 @@ public class FileWriterClass {
 		make_java_file();
 		make_input_file();
 		
-		compiler();
+		//compiler();
 		runtime();
 			
         return output;
