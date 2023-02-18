@@ -95,8 +95,8 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		//command2 = "bash /c java code_1.java < input.txt";
-		command2 = "bash /c pwd";
+		command2 = "bash java code_1.java < input.txt";
+		//command2 = "bash /c pwd";
 		//command2 = "cmd /d dir";
 		process2 = null;
 		try
