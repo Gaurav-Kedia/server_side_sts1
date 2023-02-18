@@ -95,7 +95,7 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		command2 = "bash java code_1.java < input.txt";
+		command2 = "bash java /home/gauravk/server_side_sts1/server_side_sts1/target/code_1.java < /home/gauravk/server_side_sts1/server_side_sts1/target/input.txt";
 		//command2 = "bash /c pwd";
 		//command2 = "cmd /d dir";
 		process2 = null;
