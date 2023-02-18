@@ -39,6 +39,7 @@ public class FileWriterClass {
             //code = code.substring(1, code.length()-1);
             fw.write(code);
             fw.close();
+	    System.out.println("successfully create code file");
 
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -52,6 +53,7 @@ public class FileWriterClass {
             //input = input.substring(1, input.length()-1);
             fw.write(input);
             fw.close();
+	    System.out.println("successfully create input file");
 
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -93,7 +95,7 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		command2 = "cmd /c java code_1.java < input.txt";
+		command2 = "java code_1.java < input.txt";
 		//command2 = "cmd /d dir";
 		process2 = null;
 		try
