@@ -96,7 +96,7 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		File location = new File("/home/gauravk/server_side_sts1/server_side_sts1/target/");
+		File location = new File("/home/gauravk/back_code/server_side_sts1/server_side_sts1/target/");
 		command2 = "java code_1.java < input.txt";
 		
 		System.out.println("Running in: " + location);
