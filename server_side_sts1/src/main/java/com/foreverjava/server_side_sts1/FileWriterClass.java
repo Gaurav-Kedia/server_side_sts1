@@ -35,7 +35,7 @@ public class FileWriterClass {
 	
 	public void make_java_file() {
 		try {
-            File newTextFile = new File("code_1.java");
+            File newTextFile = new File("/tmp/code_1.java");
             FileWriter fw = new FileWriter(newTextFile);
             //code = code.substring(1, code.length()-1);
             fw.write(code);
@@ -49,7 +49,7 @@ public class FileWriterClass {
 	
 	public void make_input_file() {
 		try {
-            File newTextFile = new File("input.txt");
+            File newTextFile = new File("/tmp/input.txt");
             FileWriter fw = new FileWriter(newTextFile);
             //input = input.substring(1, input.length()-1);
             fw.write(input);
@@ -96,7 +96,7 @@ public class FileWriterClass {
 	}
 	
 	public void runtime() throws IOException {
-		File location = new File("/home/gauravk/back_code/server_side_sts1/server_side_sts1/target/");
+		File location = new File("/tmp/");
 		command2 = "java code_1.java < input.txt";
 		
 		System.out.println("Running in: " + location);
