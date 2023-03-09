@@ -27,7 +27,7 @@ public class FileWriterClass {
 		make_java_file();
 		make_input_file();
 		
-		//compiler();
+		compiler();
 		runtime();
 			
         return output;
@@ -35,7 +35,7 @@ public class FileWriterClass {
 	
 	public void make_java_file() {
 		try {
-            File newTextFile = new File("/tmp/code_1.java");
+            File newTextFile = new File("/tmp/code.java");
             FileWriter fw = new FileWriter(newTextFile);
             //code = code.substring(1, code.length()-1);
             fw.write(code);
@@ -62,18 +62,34 @@ public class FileWriterClass {
 	}
 	
 	public void compiler() throws IOException {
-		command = "javac code_1.java";
-		process = null;
-		try
-		{
-		    process = Runtime.getRuntime().exec(command);
-		} 
-		catch (IOException e)
-		{
-		    e.printStackTrace();
-		}
+	File location = new File("/tmp/");
+	command = "javac code.java";
 		
-		final BufferedReader is = new BufferedReader(new InputStreamReader(process.getInputStream()));
+	output.append("Running in: " + location);
+        output.append("Command: " + command);
+		
+	ProcessBuilder builder = new ProcessBuilder();
+        builder.directory(location);
+
+        if(isWindows) {
+            	builder.command("cmd.exe", "/c", command2);
+        }else {
+            	builder.command("sh", "-c", command2);
+        }
+	//command = "bash /c pwd";
+	//command = "cmd /d dir";
+	process = null;
+	try
+	{
+		//process = Runtime.getRuntime().exec(command);
+		process = builder.start();
+	} 
+	catch (IOException e)
+	{
+		e.printStackTrace();
+	}
+		
+	final BufferedReader is = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
     	output.append("from compiler : \n");
         while ((line = is.readLine()) != null) {
@@ -97,10 +113,10 @@ public class FileWriterClass {
 	
 	public void runtime() throws IOException {
 		File location = new File("/tmp/");
-		command2 = "java code_1.java < input.txt";
+		command2 = "java code.java < input.txt";
 		
-		System.out.println("Running in: " + location);
-        	System.out.println("Command: " + command2);
+		output.append("Running in: " + location);
+        	output.append("Command: " + command2);
 		
 		ProcessBuilder builder = new ProcessBuilder();
         	builder.directory(location);
