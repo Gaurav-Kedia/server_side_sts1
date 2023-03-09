@@ -72,9 +72,9 @@ public class FileWriterClass {
         builder.directory(location);
 
         if(isWindows) {
-            	builder.command("cmd.exe", "/c", command2);
+            	builder.command("cmd.exe", "/c", command);
         }else {
-            	builder.command("sh", "-c", command2);
+            	builder.command("sh", "-c", command);
         }
 	//command = "bash /c pwd";
 	//command = "cmd /d dir";
