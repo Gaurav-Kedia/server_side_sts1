@@ -41,7 +41,7 @@ public class FileWriterClass {
             fw.write(code);
             fw.close();
 	    System.out.println("successfully create code file");
-			output.appendLn();
+			output.append("\n");
 
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -56,7 +56,7 @@ public class FileWriterClass {
             fw.write(input);
             fw.close();
 	    System.out.println("successfully create input file");
-			output.appendLn();
+			output.append("\n");
 
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -68,9 +68,9 @@ public class FileWriterClass {
 	command = "javac code.java";
 		
 	output.append("Running in: " + location);
-		output.appendLn();
+		output.append("\n");
         output.append("Command: " + command);
-		output.appendLn();
+		output.append("\n");
 		
 	ProcessBuilder builder = new ProcessBuilder();
         builder.directory(location);
@@ -100,7 +100,7 @@ public class FileWriterClass {
         while ((line = is.readLine()) != null) {
         	System.out.println("c : " + line);
         	output.append(line);
-		output.appendLn();
+		output.append("\n");
 	}
         final BufferedReader is2 = new BufferedReader(new InputStreamReader(process.getErrorStream()));
         boolean f = false;
@@ -108,12 +108,12 @@ public class FileWriterClass {
         	f = true;
         	System.out.println(line);
         	output.append(line);
-		output.appendLn();
+		output.append("\n");
         }
         
         if(!f) {
         	output.append("successfully compiled");
-		output.appendLn();
+		output.append("\n");
         }
 	}
 	
@@ -122,9 +122,9 @@ public class FileWriterClass {
 		command2 = "java code.java < input.txt";
 		
 		output.append("Running in: " + location);
-		output.appendLn();
+		output.append("\n");
         	output.append("Command: " + command2);
-		output.appendLn();
+		output.append("\n");
 		
 		ProcessBuilder builder = new ProcessBuilder();
         	builder.directory(location);
@@ -150,17 +150,17 @@ public class FileWriterClass {
 		final BufferedReader is3 = new BufferedReader(new InputStreamReader(process2.getInputStream()));
 		String line2;
 		output.append("from runtime :");
-		output.appendLn();
+		output.append("\n");
 		while ((line2 = is3.readLine()) != null) {
 			System.out.println("r : " + line2);
 			output.append(line2);
-			output.appendLn();
+			output.append("\n");
 		}
 		final BufferedReader is4 = new BufferedReader(new InputStreamReader(process2.getErrorStream()));
 		while ((line2 = is4.readLine()) != null) {
 			System.out.println(line2);
 			output.append(line2);
-			output.appendLn();
+			output.append("\n");
 		}
 	}
 }
