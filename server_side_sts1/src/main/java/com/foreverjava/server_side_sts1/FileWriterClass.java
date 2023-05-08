@@ -16,7 +16,7 @@ public class FileWriterClass {
 	String command, command2;
 	ProcessBuilder pb;
 	Process process, process2;
-	StringBuilder output = new StringBuilder("Here is the output for your code :");
+	StringBuilder output = new StringBuilder("");
 	
 	public FileWriterClass(String val, String in) {
 		this.code=val;
@@ -41,8 +41,7 @@ public class FileWriterClass {
             fw.write(code);
             fw.close();
 	    System.out.println("successfully create code file");
-			output.append("\n");
-
+			
         } catch (IOException iox) {
             iox.printStackTrace();
         }
@@ -56,8 +55,7 @@ public class FileWriterClass {
             fw.write(input);
             fw.close();
 	    System.out.println("successfully create input file");
-			output.append("\n");
-
+			
         } catch (IOException iox) {
             iox.printStackTrace();
         }
@@ -67,10 +65,10 @@ public class FileWriterClass {
 	File location = new File("/tmp/file/");
 	command = "javac code.java";
 		
-	output.append("Running in: " + location);
-		output.append("\n");
-        output.append("Command: " + command);
-		output.append("\n");
+	//output.append("Running in: " + location);
+		//output.append("\n");
+        //output.append("Command: " + command);
+		//output.append("\n");
 		
 	ProcessBuilder builder = new ProcessBuilder();
         builder.directory(location);
@@ -121,10 +119,10 @@ public class FileWriterClass {
 		File location = new File("/tmp/file/");
 		command2 = "java code.java < input.txt";
 		
-		output.append("Running in: " + location);
-		output.append("\n");
-        	output.append("Command: " + command2);
-		output.append("\n");
+		//output.append("Running in: " + location);
+		//output.append("\n");
+        	//output.append("Command: " + command2);
+		//output.append("\n");
 		
 		ProcessBuilder builder = new ProcessBuilder();
         	builder.directory(location);
