@@ -17,7 +17,6 @@ public class FileWriterClass {
 	ProcessBuilder pb;
 	Process process, process2;
 	StringBuilder output = new StringBuilder("Here is the output for your code :");
-	output.appendLn();
 	
 	public FileWriterClass(String val, String in) {
 		this.code=val;
