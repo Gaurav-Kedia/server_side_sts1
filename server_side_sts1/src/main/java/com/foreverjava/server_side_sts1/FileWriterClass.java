@@ -93,7 +93,7 @@ public class FileWriterClass {
 		
 	final BufferedReader is = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
-    	output.append("from compiler :");
+    	//output.append("from compiler :");
 		output.append(System.getProperty("line.separator"));
         while ((line = is.readLine()) != null) {
         	System.out.println("c : " + line);
@@ -147,7 +147,8 @@ public class FileWriterClass {
 	
 		final BufferedReader is3 = new BufferedReader(new InputStreamReader(process2.getInputStream()));
 		String line2;
-		output.append("from runtime :");
+		//output.append("from runtime :");
+		output.append("Output : ");
 		output.append("\n");
 		while ((line2 = is3.readLine()) != null) {
 			System.out.println("r : " + line2);
