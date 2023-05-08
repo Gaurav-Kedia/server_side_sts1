@@ -94,7 +94,6 @@ public class FileWriterClass {
 	final BufferedReader is = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
     	//output.append("from compiler :");
-		output.append(System.getProperty("line.separator"));
         while ((line = is.readLine()) != null) {
         	System.out.println("c : " + line);
         	output.append(line);
