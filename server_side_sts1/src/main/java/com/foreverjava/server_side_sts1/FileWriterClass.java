@@ -35,7 +35,7 @@ public class FileWriterClass {
 	
 	public void make_java_file() {
 		try {
-            File newTextFile = new File("/tmp/file/code.java");
+            File newTextFile = new File("/home/ubuntu/codebase/file/code.java");
             FileWriter fw = new FileWriter(newTextFile);
             //code = code.substring(1, code.length()-1);
             fw.write(code);
@@ -49,7 +49,7 @@ public class FileWriterClass {
 	
 	public void make_input_file() {
 		try {
-            File newTextFile = new File("/tmp/file/input.txt");
+            File newTextFile = new File("/home/ubuntu/codebase/file/input.txt");
             FileWriter fw = new FileWriter(newTextFile);
             //input = input.substring(1, input.length()-1);
             fw.write(input);
@@ -62,7 +62,7 @@ public class FileWriterClass {
 	}
 	
 	public void compiler() throws IOException {
-	File location = new File("/tmp/file/");
+	File location = new File("/home/ubuntu/codebase/file/");
 	command = "javac code.java";
 		
 	//output.append("Running in: " + location);
@@ -109,13 +109,13 @@ public class FileWriterClass {
         }
         
         if(!f) {
-        	output.append("successfully compiled");
+        	output.append("Successfully Compiled");
 		output.append("\n");
         }
 	}
 	
 	public void runtime() throws IOException {
-		File location = new File("/tmp/file/");
+		File location = new File("/home/ubuntu/codebase/file/");
 		command2 = "java code.java < input.txt";
 		
 		//output.append("Running in: " + location);
