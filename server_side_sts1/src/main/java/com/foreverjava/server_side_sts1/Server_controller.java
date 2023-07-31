@@ -4,6 +4,7 @@
 package com.foreverjava.server_side_sts1;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONObject;
@@ -23,7 +24,8 @@ public class Server_controller {
 	@GetMapping("/Hello")
 	public String welcome() {
 		System.out.println("..................getting a request....");
-		return new String("APi is working as expected - Gaurav");
+	    java.util.Date date = new java.util.Date();
+		return new String(date + " APi is working as expected - Gaurav");
 	}
 	
 	@GetMapping("/Error")

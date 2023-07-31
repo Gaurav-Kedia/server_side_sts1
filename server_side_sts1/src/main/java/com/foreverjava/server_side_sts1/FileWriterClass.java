@@ -17,6 +17,7 @@ public class FileWriterClass {
 	ProcessBuilder pb;
 	Process process, process2;
 	StringBuilder output = new StringBuilder("");
+	java.util.Date date = new java.util.Date();
 	
 	public FileWriterClass(String val, String in) {
 		this.code=val;
@@ -40,7 +41,7 @@ public class FileWriterClass {
             //code = code.substring(1, code.length()-1);
             fw.write(code);
             fw.close();
-	    System.out.println("successfully create code file");
+	    System.out.println(date + " :successfully create code file");
 			
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -54,7 +55,7 @@ public class FileWriterClass {
             //input = input.substring(1, input.length()-1);
             fw.write(input);
             fw.close();
-	    System.out.println("successfully create input file");
+	    System.out.println(date + " :successfully create input file");
 			
         } catch (IOException iox) {
             iox.printStackTrace();
@@ -103,7 +104,7 @@ public class FileWriterClass {
         boolean f = false;
         while ((line = is2.readLine()) != null) {
         	f = true;
-        	System.out.println(line);
+        	System.out.println(date + line);
         	output.append(line);
 		output.append("\n");
         }
@@ -150,13 +151,13 @@ public class FileWriterClass {
 		output.append("Output : ");
 		output.append("\n");
 		while ((line2 = is3.readLine()) != null) {
-			System.out.println("r : " + line2);
+			System.out.println(date + " :r : " + line2);
 			output.append(line2);
 			output.append("\n");
 		}
 		final BufferedReader is4 = new BufferedReader(new InputStreamReader(process2.getErrorStream()));
 		while ((line2 = is4.readLine()) != null) {
-			System.out.println(line2);
+			System.out.println(date + line2);
 			output.append(line2);
 			output.append("\n");
 		}
