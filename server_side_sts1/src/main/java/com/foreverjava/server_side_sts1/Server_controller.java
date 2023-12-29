@@ -41,7 +41,7 @@ public class Server_controller {
 //		return f.write();
 //	}
 	@PostMapping("/java")
-	@Async
+	//@Async
 	public StringBuilder runnable(@RequestBody String s) throws IOException {
 		JSONObject j = new JSONObject(s);
 		System.out.println(j.getString("code") + " : " +j.getString("input"));
