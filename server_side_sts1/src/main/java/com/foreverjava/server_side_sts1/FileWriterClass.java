@@ -12,6 +12,8 @@ public class FileWriterClass {
 	private static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	String code;
 	String input;
+	String timestamp;
+	
 	Scanner compiler_output, runtime;
 	String command, command2;
 	ProcessBuilder pb;
@@ -19,9 +21,10 @@ public class FileWriterClass {
 	StringBuilder output = new StringBuilder("");
 	java.util.Date date = new java.util.Date();
 	
-	public FileWriterClass(String val, String in) {
+	public FileWriterClass(String val, String in, String ts) {
 		this.code=val;
 		this.input=in;
+		this.timestamp=ts;
 	}
 	
 	public StringBuilder write() throws IOException {
@@ -36,7 +39,7 @@ public class FileWriterClass {
 	
 	public void make_java_file() {
 		try {
-            File newTextFile = new File("/home/ubuntu/codebase/file/code.java");
+            File newTextFile = new File("/home/ubuntu/codebase/file/code_" + timestamp + ".java");
             FileWriter fw = new FileWriter(newTextFile);
             //code = code.substring(1, code.length()-1);
             fw.write(code);
@@ -50,7 +53,7 @@ public class FileWriterClass {
 	
 	public void make_input_file() {
 		try {
-            File newTextFile = new File("/home/ubuntu/codebase/file/input.txt");
+            File newTextFile = new File("/home/ubuntu/codebase/file/input_" + timestamp + ".txt");
             FileWriter fw = new FileWriter(newTextFile);
             //input = input.substring(1, input.length()-1);
             fw.write(input);
@@ -64,7 +67,7 @@ public class FileWriterClass {
 	
 	public void compiler() throws IOException {
 	File location = new File("/home/ubuntu/codebase/file/");
-	command = "javac code.java";
+	command = "javac code_" + timestamp + ".java";
 		
 	//output.append("Running in: " + location);
 		//output.append("\n");
@@ -117,7 +120,7 @@ public class FileWriterClass {
 	
 	public void runtime() throws IOException {
 		File location = new File("/home/ubuntu/codebase/file/");
-		command2 = "java code.java < input.txt";
+		command2 = "java code_" + timestamp + ".java" + " < input_" + timestamp + ".txt";
 		
 		//output.append("Running in: " + location);
 		//output.append("\n");
